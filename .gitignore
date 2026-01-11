@@ -1,0 +1,7 @@
+# .gitignore
+.terraform/
+*.tfstate
+*.tfstate.backup
+.env
+__pycache__/
+*.zip

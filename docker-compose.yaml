@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  localstack:
+    container_name: localstack_main
+    image: localstack/localstack-pro:latest
+    ports:
+      - "4566:4566"            # The Edge Port (gateway to all AWS services)
+    environment:
+      - LOCALSTACK_AUTH_TOKEN=${LOCALSTACK_AUTH_TOKEN}  # Required for Pro features
+      - SERVICES=sns,sqs,lambda,dynamodb,cloudwatch,iam,sts # Only load what we need
+      - DEBUG=1    # nuanced logging for debugging
+      - LAMBDA_EXECUTOR=docker # CRITICAL: Runs Lambdas in their own Docker containers for realism
+      - DOCKER_HOST=unix:///var/run/docker.sock
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock" # Allows LocalStack to spawn sibling containers for Lambda
