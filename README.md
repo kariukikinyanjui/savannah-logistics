@@ -34,7 +34,7 @@ I implemented an **Asynchronous Fan-Out Architecture** using the AWS standard tr
 4. **Persist:** Lambda writes to **DynamoDB** with Idempotency checks.
 5. **Fail-Safe:** Malformed messages are routed to a **Dead Letter Queue (DLQ)**.
 
-![Architecture]()
+![Architecture](https://github.com/kariukikinyanjui/savannah-logistics/blob/main/screenshots/architecture-diagram.png)
 
 ---
 
